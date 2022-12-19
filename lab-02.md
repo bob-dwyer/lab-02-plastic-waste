@@ -1,7 +1,7 @@
 Lab 02 - Plastic waste
 ================
 Bob Dwyer
-Insert date here
+Sys. Date()
 
 ## Load packages and data
 
@@ -17,17 +17,38 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+#### The largest plastic waste per capital belongs to Tinidad & Tobago (NA). Forbes states that “Inadequate waste management is at the root of the problem.”
 
 ``` r
-# insert code here
+plastic_waste %>% 
+  ggplot(aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = .2) +
+  facet_wrap(~ continent)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite values (stat_bin).
+
+![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
 
 ### Exercise 2
 
+#### Describe why we defined the color and fill of the curves by mapping aesthetics of the plot but we defined the alpha level as a characteristic of the plotting geom.
+
+Answer: Color and fill are assigned to specific variables, whereas,
+adding the alpha aesthetic to a geom assigned the aesthetic universally,
+and can almost be thought of as a graph setting.
+
 ``` r
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density(alpha = 0.25)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite values (stat_density).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
 ### Exercise 3
 
