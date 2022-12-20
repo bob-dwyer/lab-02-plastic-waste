@@ -2,7 +2,7 @@
 title: "Lab 02 - Plastic waste"
 author: "Bob Dwyer"
 date: "Sys. Date()"
-output: html_document
+output: github_document
 ---
 
 ## Load packages and data
